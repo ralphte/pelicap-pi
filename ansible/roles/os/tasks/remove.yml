@@ -1,0 +1,5 @@
+- name: Remove Kali Extras
+  apt:
+    pkg:
+    - xfce4 
+    state: absent

@@ -1,0 +1,9 @@
+---
+- name: Install Dependencies 
+  apt:
+    pkg:
+    - build-essential 
+    - libpcap-dev 
+    - libusb-1.0-0-dev 
+    - libnetfilter-queue-dev 
+    - golang

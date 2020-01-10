@@ -1,0 +1,15 @@
+#!/bin/bash
+
+export RESTIC_REPOSITORY="s3:{{ backup_s3_url }}:{{ backup_s3_port }}/{{ backup_s3_bucket }}/{{ inventory_hostname }}"
+export RESTIC_PASSWORD="{{ backup_password }}"
+export AWS_ACCESS_KEY_ID="{{ backup_s3_key }}"
+export AWS_SECRET_ACCESS_KEY="{{ backup_s3_secret }}"
+
+# abort entire script if any command fails
+set -e
+
+# backup the data dir
+{{ restic_install_path }}/restic backup /etc/home-assistant/config
+
+# clean up backup dir
+{{ restic_install_path }}/restic forget --keep-daily 7 --keep-weekly 5 --keep-monthly 12 --keep-yearly 75

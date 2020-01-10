@@ -1,0 +1,7 @@
+---
+- include: upgrade.yml
+- include: password.yml
+- include: network.yml
+- include: bluetooth.yml
+- include: remove.yml
+- include: mosh.yml

@@ -1,0 +1,39 @@
+---
+- name: Install bluez-tools
+  apt:
+    name: bluez-tools
+    state: present
+
+- name: Adding bluetooth service files
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: "{{ item.mode }}"
+  with_items:
+  - src: pan0.netdev.j2
+    dest: "/etc/systemd/network/pan0.netdev"
+    mode: 0770
+  - src: pan0.network.j2
+    dest: "/etc/systemd/network/pan0.network"
+    mode: 0770
+  - src: bt-agent.service.j2
+    dest: "/etc/systemd/system/bt-agent.service"
+    mode: 0770
+  - src: bt-network.service.j2
+    dest: "/etc/systemd/system/bt-network.service"
+    mode: 0770
+
+- name: Start and enable bluetooth services
+  systemd:
+    name: "{{ item }}"
+    state: started
+    enabled: yes
+  with_items:
+    - 'systemd-networkd'
+    - 'bt-agent'
+    - 'bt-network'
+    - 'bluetooth'
+
+- name: Set bluetooth discovery
+  command: bt-adapter --set Discoverable 1
+  register: btadapter

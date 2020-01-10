@@ -1,0 +1,3 @@
+---
+- include: remove.yml
+- include: install.yml

@@ -1,0 +1,59 @@
+---
+# tasks file for restic_backup
+
+- name: download restic binary
+  get_url:
+    url: '{{ restic_url }}'
+    dest: '/tmp/restic.bz2'
+    force: True
+  register: get_url_restic
+
+- name: decompress the binary
+  shell: "bzip2 -dc {{ get_url_restic.dest }} > {{ restic_install_path }}/restic-{{ restic_version }}"
+  args:
+    creates: '{{ restic_install_path }}/restic-{{ restic_version }}'
+
+- name: ensure permissions are correct
+  file:
+    path: '{{ restic_install_path }}/restic-{{ restic_version }}'
+    mode: '0755'
+    owner: 'root'
+    group: 'root'
+
+- name: create symbolic link to the correct version
+  file:
+    src:  '{{ restic_install_path }}/restic-{{ restic_version }}'
+    path: '{{ restic_install_path }}/restic'
+    state: link
+    force: True
+
+- name: initialize repository
+  command: '{{ restic_install_path }}/restic init'
+  environment:
+    RESTIC_REPOSITORY: "s3:{{ backup_s3_url }}:{{ backup_s3_port }}/{{ backup_s3_bucket }}/{{ inventory_hostname }}"
+    RESTIC_PASSWORD:   "{{ backup_password }}"
+    AWS_ACCESS_KEY_ID: "{{ backup_s3_key }}"
+    AWS_SECRET_ACCESS_KEY: "{{ backup_s3_secret }}"
+  no_log: False
+  register: restic_init
+  changed_when: "'created restic backend' in restic_init.stdout"
+  failed_when:
+    - restic_init.rc != 0
+    - not 'config already initialized' in restic_init.stderr
+
+- name: "create restic {{ inventory_hostname }} backup script"
+  template:
+    src: backup_home.sh.j2
+    dest: /usr/local/bin/backup_home.sh
+    owner: root
+    group: root
+    mode: 0750
+    
+- name: crontab entry
+  cron:
+    name:   "backup home"
+    day:    "{{ backup_day }}"
+    minute: "{{ backup_minute }}"
+    hour:   "{{ backup_hour }}"
+    job:    "/usr/local/bin/backup_home.sh > /dev/null 2>&1"
+  

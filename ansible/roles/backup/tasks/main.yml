@@ -1,0 +1,9 @@
+---
+- name: setup backup
+  include_tasks: "setup.yml"
+  when: restore_backup != 'true'
+
+- name: restore backup
+  include_tasks: "restore.yml"
+  when: restore_backup == 'true'
+  

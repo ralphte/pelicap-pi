@@ -1,0 +1,11 @@
+---
+- name: Install Roles
+  gather_facts: True
+  hosts: kali
+  become: True
+  roles:
+    - { role: os }
+    - { role: security }
+    # - { role: bettercap }
+    # - { role: kismet }
+    # - { role: backup }

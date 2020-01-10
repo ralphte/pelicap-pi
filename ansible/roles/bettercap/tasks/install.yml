@@ -1,0 +1,22 @@
+---
+- name: "Go-Lang | Define list of package directories"
+  set_fact:
+    go_package_locations:
+    - "{{ GOPATH }}/bin"
+    - "{{ GOPATH }}/pkg"
+    - "{{ GOPATH }}/src"
+
+- name: "Go-Lang | Run get commands"
+  command: "go get -u github.com/bettercap/bettercap"
+
+- name: Build the default target
+  make:
+    chdir: "{{ GOPATH }}/src/github.com/bettercap/bettercap"
+
+- name: Run 'install' target as root
+  make:
+    chdir: "{{ GOPATH }}/src/github.com/bettercap/bettercap"
+    target: install
+  
+- name: "Update Battercap"
+  command: "bettercap -eval 'caplets.update; ui.update; q'"

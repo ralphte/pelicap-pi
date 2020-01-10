@@ -1,0 +1,7 @@
+---
+- name: Remove old kismet
+  apt:
+    pkg:
+    - kismet 
+    - kismet-plugins
+    state: absent

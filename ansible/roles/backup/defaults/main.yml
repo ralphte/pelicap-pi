@@ -1,0 +1,6 @@
+---
+# defaults file for restic_backup
+
+restic_repository: ''
+
+restic_version: '0.9.3'

@@ -1,0 +1,7 @@
+---
+- name: Install Mosh
+  apt:
+    pkg:
+    - mosh 
+    state: present
+    update_cache: yes

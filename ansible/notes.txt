@@ -1,0 +1,21 @@
+sixfab
+
+https://github.com/sixfab/Sixfab_RPi_3G-4G-LTE_Base_Shield/tree/master/tutorials/QMI_tutorial
+
+
+pip install kismetdb
+pip install kismet-analyzer
+
+wget -O /tmp/scapy2.3.2.tar.gz https://pypi.python.org/packages/6d/72/c055abd32bcd4ee6b36ef8e9ceccc2e242dea9b6c58fdcf2e8fd005f7650/scapy-2.3.2.tar.gz; sudo pip2 install /tmp/scapy2.3.2.tar.gz
+pyrit -r 1st-floor-20200108-16-30-33-1.pcap analyze | grep AccessPoint | sort
+
+https://github.com/rmikehodges/warmap-go
+
+
+
+wifi phisher
+git clone https://github.com/wifiphisher/wifiphisher.git
+apt-get install libssl-dev
+python3 setup.py install
+
+wifiphisher --essid "FREE WI-FI" -p oauth-login -kB

@@ -1,0 +1,22 @@
+---
+- name: "Ensuring group '{{ group_name }}' exists"
+  group:
+    name: "{{ group_name }}"
+    state: present
+    gid: "{{ group_gid }}"
+
+- name: Creating users
+  user: 
+    name: "{{ item.name }}"
+    groups: "{{ item.groups }} "
+    append: "{{ item.append }}"
+    state: present
+    createhome: "{{ item.createhome }}"
+    uid: "{{ item.uid }}"
+    shell: "{{ item.shell }}"
+  with_items:
+    - { name: "{{ user_name }}", groups: "{{ group_name }}", append: yes, createhome: yes, uid: "{{ user_uid }}", shell: "/bin/bash" }
+
+- name: Set timezone to America/New_York
+  timezone:
+    name: America/New_York
