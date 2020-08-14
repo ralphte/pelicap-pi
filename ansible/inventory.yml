@@ -1,17 +1,18 @@
 pelicap_hosts:
   hosts:
     kali:
-      ansible_host: "192.168.2.6"
+      ansible_host: "0.0.0.0"
   vars:
     public_key_location: "~/.ssh/id_rsa.pub"
     ansible_connection: ssh
     ansible_ssh_private_key_file: ~/.ssh/id_rsa
     ansible_ssh_user: root
     user: root
-    ansible_ssh_pass: djsnidhawudhuaw7
-    newpassword: "djsnidhawudhuaw7"
+    ansible_ssh_pass: toor
+    newpassword: "newpassword"
     hostname: "pelicap"
     full_hostname: "{{ hostname }}.{{ domain }}"
     src_files: "./files"
     GOPATH: ~/go
     GOROOT: /usr/local/go
+    openvpn_enable: false
