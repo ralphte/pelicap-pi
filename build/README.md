@@ -2,7 +2,11 @@
 # Build Instructions
 
 ## Parts List
-The following is the parts I used to build version 1. Use this as a guide as you may want to remove or replace these parts with better gear or parts that are available. All the parts should be pretty easy to find.
+
+The following our the parts I used to build version 1
+1. Use this as a guide. You may want to remove or replace these parts with better gear or parts that are available. 
+2. All the parts should be pretty easy to find but there are no guarantees.
+3. I will attempt to keep this up to data but feel free to make a pull request with updates. 
 
 
 | Part               | Cost  | Amount | Total |
@@ -24,37 +28,39 @@ The following is the parts I used to build version 1. Use this as a guide as you
 |[SaiTech IT 2 Pack Short Length 1 Feet USB 3.0 Extension Cable, USB 3.0 A Male to Female Extender Cable](https://www.amazon.com/gp/product/B077MFLH7W/ref=ppx_yo_dt_b_asin_title_o03_s00?ie=UTF8&psc=1)|$8.99|3|$26.97|
 |[Superbat U.FL Cable 10cm/3.9” IPX (IPEX/UFL) Female to IPX (IPEX/UFL) Male RF Pigtail Cable 1.37mm Low-Loss U.FL Extension Cable Pack of 2: Home Audio & Theater](https://www.amazon.com/gp/product/B07PBDQ375/ref=ppx_yo_dt_b_asin_title_o09_s00?ie=UTF8&psc=1)| $6.99|2|$13.98|
 |[eBoot 180 Pieces Male Female Hex Brass Spacer Standoff Screw Nut Assortment Kit (M2.5)](https://www.amazon.com/gp/product/B06XXV8RTR/ref=ppx_yo_dt_b_asin_title_o03_s01?ie=UTF8&psc=1)| $8.99|1|$8.99| 
+|[POE Header Riser](https://www.digikey.com/product-detail/en/SSQ-102-01-G-D/SAM1179-02-ND/1110568?utm_medium=email&utm_source=oce&utm_campaign=2936_OCE19RT&utm_content=productdetail_US&utm_cid=1053109&so=61361008&mkt_tok=eyJpIjoiWkdRNU1qazJPV05sWXpOaiIsInQiOiJwZTg3ZEI2XC9qQ09lWmx3ZGpEUGFBVHlVOVNZNDd2bWtaUmg0NWlXeWdydkNQa3VwTUZzaUNpVFFwUzFmZTZycnk3dlJuaUJQVXRrZEQ1dWZVcmVXV21hMTBDY0hpYlVTZ3EwZFwvUHFlY0ZHMXc2aEZcL2ozdURYMTVnZGtVaVJiZiJ9)| $1.00|1|$1.00|
+|[Anker PowerCore 20100mAh](https://www.amazon.com/Portable-Charger-Anker-PowerCore-20100mAh/dp/B00X5RV14Y/ref=sr_1_4?dchild=1&keywords=anker+20000+mah&qid=1597425332&s=electronics&sr=1-4)| $45.00|1|$45.00|
+|[VK-162 Remote Mount USB GPS](https://www.amazon.com/Stratux-Vk-162-Remote-Mount-USB/dp/B01EROIUEW/ref=sr_1_6?dchild=1&keywords=gps+usb&qid=1597425806&s=electronics&sr=1-6#customerReviews)| $18.00|1|$18.00|
+|[Twilio Sim Card](https://www.twilio.com/docs/iot/wireless/how-to-order-and-register-your-first-sim)| $18.00|1|$18.00|
 
-- POE Riser 
-- Battery 
 
-## Initial Pi Setup 
+## Initial Pi Build
 
 ### RaspberyPi 4
-![RaspberyPi 4](1.png)
+![RaspberyPi 4](../img/build1.png)
 
 ### RaspberyPi 4 & Hats
-![RaspberyPi 4 & Hats](2.png)
+![RaspberyPi 4 & Hats](../img/build2.png)
 
 1. Attach any heatsinks you may have to RPi (Optional)
 2. Attach 40-pin header to RPi
 3. Attach 4-pin PoE Header pins
 
-![](3.png)
+![](../img/build3.png)
 
 1. Attach spacers to RPi
 
-![](4.png)
+![](../img/build4.png)
 
 1. Attach PoE hat to RPi headers
 
-![](5.png)
+![](../img/build5.png)
 
 1. Break out SIM card
 
-![](6.png)
+![](../img/build6.png)
 
-![](7.png)
+![](../img/build7.png)
 
 1. Insert SIM card into LTE hat
 2. Attach Modem to LTE hat
@@ -62,39 +68,39 @@ The following is the parts I used to build version 1. Use this as a guide as you
 4. Attach spacers to PoE Hat
 5. Attach LTE hat to 40-pin header on PoE hat
 
-![](8.png)
+![](../img/build8.png)
 
 1. Attach Micro USB from LTE Hat to Pi USB port
 
-![](9.png)
+![](../img/build9.png)
 
 1. Attach antenna to LTE hat making sure to be very careful about each connection type (LTE DIV, GPS, LTE Primary)
 
-![](10.ping)
+![](../img/build10.ping)
 
 Case Build
 
 1. Trace inner ring of ETH and USB rings
 
-![](11.png)
+![](../img/build11.png)
 
-![](12.png)
+![](../img/build12.png)
 
 1. Drill USB/Eth Rings as well as five (5) Coax holes
 
-![](13.png)
+![](../img/build13.png)
 
-![](14.png)
+![](../img/build14.png)
 
-![](15.png)
+![](../img/build15.png)
 
 1. Connect USB/Eth/Coax to Pelican Case
 
-![](16.png)
+![](../img/build16.png)
 
-![](17.png)
+![](../img/build17.png)
 
-![](18.png)
+![](../img/build18.png)
 
 1. Connect USB hub to Pi
 2. Connect the two (2) USB extension cables to the Pi, one to hub
@@ -104,9 +110,9 @@ Case Build
 6. Connect WiFi antennas to Coax
 7. Remove sticker coating from cellular antenna and apply it to the inside of the case.
 
-![](19.png)
+![](../img/build19.png)
 
-OS Setup
+## OS Setup
 
 1. Download Win32 Disk Imager
 2. Write Kali Image to MicroSD card
@@ -129,26 +135,6 @@ OS Setup
 5.
 6.
 
-Other Notes
-
-Ralph needs to add 4-pin header for PoE connector to parts list
+## Other Notes
 
 For SIM data on Twilio follow this for test SIM card: [https://pages.twilio.com/rs/294-TKB-300/images/Sixfab\_Twilio\_SIM\_Registration%20Instructions\_612020.pdf](https://pages.twilio.com/rs/294-TKB-300/images/Sixfab_Twilio_SIM_Registration%20Instructions_612020.pdf)
-
-Other Possible Parts Needed
-
-Rechargable Battery Pack
-
-90 degree angle USB-C attachments
-
-SIM card
-
-4-pin header
-
-2 USB to Eth Adapters
-
-USB Hub
-
-1-ft USB male-to-male cable
-
-GPS
